@@ -1,0 +1,155 @@
+$header: #a1e5f4;
+$light: #fff;
+$footer: rgba(255, 196, 176, 0.753);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 90vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header {
+  background-color: $header;
+  width: 100%;
+  position: sticky; /* fix the position of the header  */
+  top: 0;
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(148, 148, 148, 1);
+  box-shadow: 0px 0px 8px 1px rgba(148, 148, 148, 1);
+  position: sticky;
+  top: 0;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.nav {
+  text-align: center;
+  padding: 0.5rem;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--effect {
+      transition: all 0.5s;
+      animation: effect 2s linear;
+    }
+    &--effect:hover {
+      transform: scale(1.2, 1.2);
+    }
+  }
+  &__mobileMenu {
+    display: block;
+    img {
+      width: 2rem;
+    }
+  }
+  &__title img {
+    margin: 0 0.5rem;
+  }
+  &__link {
+    display: none;
+
+    h3 a {
+      transition: all 0.5s;
+    }
+
+    h3 a:hover {
+      display: block;
+      color: #fc541d;
+      transform: scale(1.2, 1.2);
+    }
+  }
+}
+
+@keyframes effect {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(15%);
+  }
+}
+
+.show {
+  display: block;
+
+  h3 {
+    padding: 0.5rem 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+    padding: 1rem 5rem;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title img {
+      margin-right: 1rem;
+    }
+    &__mobileMenu {
+      display: none;
+    }
+    &__link {
+      display: flex;
+      column-gap: 1.5rem;
+    }
+  }
+  .show {
+    h3 {
+      padding: 0;
+    }
+  }
+
+  @keyframes effect {
+    0% {
+      transform: translateX(-75%);
+    }
+    25% {
+      transform: translateX(-25%);
+    }
+    50% {
+      transform: translateX(30%);
+    }
+    75% {
+      transform: translateX(15%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+main {
+  min-height: 100%;
+}
+
+.footer {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__items {
+    background-color: $footer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 8%;
+  }
+
+  &__text {
+    padding: 0 15px;
+  }
+}
